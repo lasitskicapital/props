@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Список проп-компаний</title>
+  <title>Проп-компании</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -11,26 +11,27 @@
       background-color: #f8f8f8;
     }
 
-    header {
-      background-color: #1a73e8;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    .content {
-      padding: 20px;
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
     }
 
     iframe {
       border: none;
       width: 100%;
-      height: 900px;
+      height: 100%;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 32px; /* подогнано под высоту заголовка */
+      background-color: white;
+      z-index: 2;
+      pointer-events: none; /* чтобы не мешал кликам */
     }
 
     footer {
@@ -43,21 +44,17 @@
 </head>
 <body>
 
-  <header>
-    <h1>Список и приоритет проп-компаний</h1>
-  </header>
-
-  <div class="content">
-    <p>Ниже представлена актуальная таблица с приоритетами и условиями проп-компаний. Рекомендуем сохранить страницу в закладки и регистрироваться через предоставленные ссылки.</p>
-    
+  <div class="iframe-container">
+    <div class="overlay"></div>
     <iframe 
       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT7pR4oqkq1XupElCAOBJtcrLswD3XyrPH96SIZxAhbjBK1uuiwstUpSIeS1b9065zRH27e_YzYAAam/pubhtml?widget=true&amp;headers=false">
     </iframe>
   </div>
 
   <footer>
-    &copy; 2025 Проп-компании. Все права защищены.
+    &copy; 2025 Все права защищены.
   </footer>
 
 </body>
 </html>
+
