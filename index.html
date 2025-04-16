@@ -3,86 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Проп-компании</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
     }
 
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
+    .iframe-wrapper {
+      position: absolute;
+      top: -40px; /* подбирается вручную */
+      bottom: -40px;
+      left: 0;
+      right: 0;
       overflow: hidden;
     }
 
     iframe {
+      width: 100%;
+      height: calc(100% + 80px); /* компенсирует смещение сверху и снизу */
       border: none;
-      width: 100%;
-      height: 100%;
-    }
-
-    .overlay-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 32px;
-      background-color: white;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .overlay-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 36px;
-      background-color: white;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    footer {
-      text-align: center;
-      color: #777;
-      padding: 16px 10px;
-      font-size: 14px;
     }
 
     @media (max-width: 768px) {
-      .iframe-container {
-        height: 100dvh;
+      .iframe-wrapper {
+        top: -50px;
+        bottom: -50px;
       }
 
-      footer {
-        font-size: 12px;
-        padding: 12px 8px;
-      }
-
-      body {
-        transform: scale(0.9);
-        transform-origin: top;
+      iframe {
+        height: calc(100% + 100px);
       }
     }
   </style>
 </head>
 <body>
-
-  <div class="iframe-container">
-    <div class="overlay-top"></div>
-    <div class="overlay-bottom"></div>
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT7pR4oqkq1XupElCAOBJtcrLswD3XyrPH96SIZxAhbjBK1uuiwstUpSIeS1b9065zRH27e_YzYAAam/pubhtml">
-    </iframe>
+  <div class="iframe-wrapper">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT7pR4oqkq1XupElCAOBJtcrLswD3XyrPH96SIZxAhbjBK1uuiwstUpSIeS1b9065zRH27e_YzYAAam/pubhtml"></iframe>
   </div>
-
-  <footer>
-    &copy; 2025 Все права защищены.
-  </footer>
-
 </body>
 </html>
